@@ -1,87 +1,62 @@
-# AI Market Decision System V3 — Nifty 500
-
-## Main objective
-
-A beginner-friendly decision-support system for Indian swing and positional trading.
-
-## Universe
-
-**Complete Nifty 500**
-
-Unlike V1/V2, V3 does NOT exclude Nifty 200.
-
-The Nifty 500 is a broad-market index covering large-, mid- and small-cap segments. NSE Indices describes it as the top 500 companies from the eligible universe based on full market capitalisation and average daily turnover.
-
-## Workflow
-
-### 1. Market
-- Nifty 50
-- India VIX
-- Global index proxies where available
-- Simple market regime: favourable / selective / defensive
-
-### 2. Sector
-- Sector index momentum
-- 5D / 20D / 60D
-- Above 50/200 EMA
-- Shortlist sector leadership
-
-### 3. Stock
-- Trend: Close > EMA20 > EMA50 > EMA200
-- RSI 55–75 preferred
-- MACD
-- 20D and 55D breakout
-- Tight 20D structure
-- Volume expansion
-- Relative strength vs market/sector
-
-### 4. Fundamental
-- Revenue growth
-- Earnings growth
-- ROE
-- ROA
-- Debt/equity
-- Profit margin
-- PE warning
-
-### 5. Risk
-- ATR/base-low stop reference
-- 2R / 3R targets
-- Position sizing from capital and risk %
-- Rupee risk displayed
-
-### 6. Decision
-- BUY CANDIDATE
-- WATCH
-- WAIT
-- WATCH / WAIT in defensive market
-- AVOID
-
-## Score
-
-- Technical: 65
-- Relative strength / market: 15
-- Fundamentals: 20
-- Total: 100
-
-The score is a ranking/checklist score, NOT a probability of profit.
-
-## Deployment
-
-Repository root:
-- app.py
-- requirements.txt
-- README.md
-
-Streamlit Community Cloud:
-- Repository = your GitHub repository
-- Branch = main
-- Main file = app.py
-
-## Data
-
-Prototype uses Yahoo Finance. Data can be delayed, incomplete or unavailable. Verify live NSE/broker data before execution.
-
-## Safety
-
-This application does not place orders and does not guarantee returns. It is intended as a research and decision-support prototype.
+Nifty 500 AI Swing & Positional Trading Assistant
+Clean Streamlit Cloud version for research and decision support.
+Workflow
+Market → Sector → Nifty 500 → Technical → Fundamental → Risk → Decision
+Market
+Nifty 50
+India VIX
+S&P 500
+Nasdaq
+Nikkei
+Hang Seng
+Technical
+Close > EMA20 > EMA50 > EMA200
+RSI 55–75 preferred
+MACD
+20D momentum
+20D / 55D breakout
+Tight 20D base
+Volume expansion
+Relative strength
+Fundamental
+Top candidates are checked for:
+Revenue growth
+Earnings growth
+ROE / ROA
+Debt/equity
+PE
+Risk planner
+Enter capital and risk %. The app calculates a reference:
+Entry
+Stop loss
+2R target
+3R target
+Quantity
+Approximate rupee risk
+Score
+100-point ranking:
+Technical + relative strength: up to 80
+Fundamental: up to 20
+The score is not a probability of profit and does not guarantee returns.
+GitHub repository
+Keep the deployment repository simple:
+app.py
+requirements.txt
+README.md
+Replace the old files with these exact three files. Do not point Streamlit to app_v3.py; the main file is app.py.
+Streamlit Community Cloud
+Open your GitHub repository.
+Replace app.py.
+Replace requirements.txt.
+Replace README.md.
+Commit changes.
+Open your Streamlit app and use Reboot app / redeploy.
+Main file: app.py.
+If NSE blocks the constituent download
+The app shows an upload box. Download the current Nifty 500 constituent CSV from the official NSE Nifty 500 page and upload it. The CSV must contain a Symbol column.
+Data
+Nifty 500 universe: official NSE constituent CSV.
+Prototype market data: Yahoo Finance.
+Data may be delayed or temporarily unavailable. Verify live NSE/broker prices, volume, liquidity, results, corporate actions and news before trading.
+Safety
+This is a research/decision-support tool. It does not place orders and does not guarantee profit.
